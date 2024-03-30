@@ -19,10 +19,13 @@ function displayCharacters(characterList) {
         if (index < serviceItems.length) {
             const img = serviceItems[index].querySelector('.service-img img');
             img.src = character.data.image;
-            img.alt = character.name;
+            img.alt = character.data.name;
 
             const serviceName = serviceItems[index].querySelector('.service-content-inner h5');
-            serviceName.textContent = character.name;
+            serviceName.textContent = character.data.name;
+
+            const serviceDescription = serviceItems[index].querySelector('.service-content-inner p');
+            serviceDescription.textContent = `Status: ${character.data.status}, Species: ${character.data.species}, Type: ${character.data.type}`;
         }
     });
 }
