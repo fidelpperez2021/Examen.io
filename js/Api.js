@@ -1,4 +1,4 @@
-const getPokemon = async () => {
+const getRick = async () => {
     let characters = await fetch(`https://rickandmortyapi.com/api/character?page=2`);
     characters = await characters.json();
     console.log(characters);
@@ -26,8 +26,16 @@ function displayCharacters(characterList) {
 
             const serviceDescription = serviceItems[index].querySelector('.service-content-inner p');
             serviceDescription.textContent = `Status: ${character.data.status}, Species: ${character.data.species}, Type: ${character.data.type}`;
+            
+            // Agregar eventos de clic a los elementos de la lista o galería
+            serviceItems[index].addEventListener('click', () => mostrarDetalles(character));
         }
     });
 }
 
-window.addEventListener('load', getPokemon);
+function mostrarDetalles(character) {
+    // Mostrar detalles del personaje en la consola
+    console.log(character);
+}
+
+window.addEventListener('load', getRick);
